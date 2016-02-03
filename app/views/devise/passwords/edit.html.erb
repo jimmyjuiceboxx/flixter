@@ -1,0 +1,27 @@
+<div class="panel panel-default col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3">
+  <div class="panel-heading">
+    <h2>Change your password</h2>
+  </div>
+
+  <div class="panel-body">
+    <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+      <%= devise_error_messages! %>
+      <%= f.hidden_field :reset_password_token %>
+
+      <div class="form-inputs">
+       
+        <%= f.input :password, autofocus: true, autocomplete: "off" %>
+        <%= f.input :password_confirmation, autocomplete: "off" %>
+      </div>
+      
+      <div class="form-actions">
+        <%= f.submit "Change password", class:'btn btn-primary' %>
+      </div>
+    <% end %>
+  </div>
+  <div class="panel-footer">
+    <div class="form-links">
+    <%= render "devise/shared/links" %>
+    </div>
+  </div>
+</div>    
